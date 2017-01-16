@@ -17,12 +17,15 @@ namespace CS2_Student
 
             Console.WriteLine("How many students: ");
             intstudent = int.Parse(Console.ReadLine());
-            Student[] st = new Student[intstudent];
+            //Student[] st = new Student[intstudent];
+
+            List<Student> st = new List<Student>();
 
             for (int i = 0; i < intstudent; i++)
             {
 
-                st[i] = new Student();
+                //st[i] = new Student();
+                st.Add(new Student());
 
                 Console.WriteLine("Type name: ");
                 enter = Console.ReadLine();
@@ -33,7 +36,8 @@ namespace CS2_Student
                 st[i].score = int.Parse(enter);
 
             }
-            Array.Sort(st);
+            st.Sort();
+            //Array.Sort(st);
             for (int i = 0; i < intstudent; i++)
             {
                
@@ -42,7 +46,8 @@ namespace CS2_Student
             }
             
             Student comp = new Student();
-            Array.Sort(st, comp.Compare);
+            //st.Sort(st, comp.Compare);
+            //Array.Sort(st, comp.Compare);
             Console.WriteLine("With ICompare");
             for (int i = 0; i < intstudent; i++)
             {

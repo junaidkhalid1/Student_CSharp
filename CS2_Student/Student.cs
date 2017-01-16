@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CS2_Student
 {
-    public class Student: IComparable, IComparer
+    public class Student: IComparable<Student>, IComparer<Student>
     {
         private string _name;
         private float _score;
@@ -26,15 +26,15 @@ namespace CS2_Student
             set { if(value>0 && value< 20) _score = value; }
         }
 
-        public int Compare(object x, object y)
+        public int Compare(Student x, Student y)
         {
-            return (x as Student).name.CompareTo((y as Student).name);
+            return string.Compare((x as Student).name, (y as Student).name, StringComparison.Ordinal);
         }
 
         //To compare for sorting
-        public int CompareTo(object obj)
+        public int CompareTo(Student other)
         {
-            return (int)(this.score - (obj as Student).score);
+            return (int)(this.score - (other as Student).score);
         }
 
         public override string ToString()
