@@ -13,7 +13,8 @@ namespace CS2_Student
            
             Comparer cp = new Comparer();
 
-            cp.display();
+            cp.tests();
+            //cp.display();
 
             Console.ReadLine();
 

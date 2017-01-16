@@ -55,5 +55,19 @@ namespace CS2_Student
 
             }
         }
+
+        public void tests()
+        {
+            try
+            { 
+            object myobj = null;
+            Console.WriteLine("Start");
+            myobj.ToString();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
     }
 }
