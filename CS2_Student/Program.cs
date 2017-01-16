@@ -12,9 +12,11 @@ namespace CS2_Student
         {
            
             Comparer cp = new Comparer();
+            TestDelegate td = new TestDelegate();
 
-            cp.tests();
             //cp.display();
+            //cp.tests();
+            td.delegates();
 
             Console.ReadLine();
 
