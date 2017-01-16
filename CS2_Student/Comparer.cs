@@ -58,15 +58,33 @@ namespace CS2_Student
 
         public void tests()
         {
-            try
-            { 
             object myobj = null;
-            Console.WriteLine("Start");
+            try
+            {
+                try
+                {
+                    int b=6;
+                    int a = b / 0;
+                }
+                finally
+                {
+                    Console.WriteLine("First finally");
+                }
             myobj.ToString();
+            }
+            catch (System.NullReferenceException)
+            {
+                myobj = "Hello";
+                myobj.ToString();
+                Console.WriteLine("Fine");
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                Console.WriteLine("Inside Finally");
             }
         }
     }
