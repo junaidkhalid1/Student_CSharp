@@ -56,10 +56,20 @@ namespace CS2_Student
             //}
             st.Sort();
             //Array.Sort(st);
+            //For Serilzation and others
+            //for (int i = 0; i < 2; i++)
+            //{
+
+            //    Console.WriteLine(st[i].ToString());
+
+            //}
+
+            //For deserialization
             foreach (Student s in st)
             {
 
                 Console.WriteLine(s.ToString());
+
 
             }
 
