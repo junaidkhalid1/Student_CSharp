@@ -4,15 +4,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace CS2_Student
 {
+
     public class Student: IComparable<Student>, IComparer<Student>
     {
         private string _name;
         private float _score;
-        
+
         //Property for name
+        // Renaming the tag
+        [XmlElement(ElementName = "NameAfterXML")]
         public string name
         {
             get { return _name; }
@@ -20,6 +24,8 @@ namespace CS2_Student
         }
 
         //Property for score
+        // Renaming the tag
+        [XmlElement(ElementName = "ScoreAfterXML")]
         public float score
         {
             get { return _score; }

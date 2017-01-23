@@ -14,9 +14,9 @@ namespace CS2_Student
             Comparer cp = new Comparer();
             TestDelegate td = new TestDelegate();
 
-            //cp.display();
+            cp.display();
             //cp.tests();
-            td.delegates();
+            //td.delegates();
 
             Console.ReadLine();
 

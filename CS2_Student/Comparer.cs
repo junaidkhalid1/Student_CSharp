@@ -1,17 +1,24 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace CS2_Student
 {
+    //[Serializable]
     public class Comparer
     {
 
         public void display()
         {
+
+        //[XmlArray("st")]
+        //[XmlArrayItem("Student")]
+            List<Student> st;
             int intstudent;
             string enter;
 
@@ -19,7 +26,8 @@ namespace CS2_Student
             intstudent = int.Parse(Console.ReadLine());
             //Student[] st = new Student[intstudent];
 
-            List<Student> st = new List<Student>();
+
+        st = new List<Student>();
 
             for (int i = 0; i < intstudent; i++)
             {
@@ -44,7 +52,16 @@ namespace CS2_Student
                 Console.WriteLine(st[i].ToString());
 
             }
-            
+
+            //Serialize
+
+            XmlSerializer xs = new XmlSerializer(typeof(List<Student>));
+            using (StreamWriter wr = new StreamWriter("students.xml"))
+            {
+                xs.Serialize(wr, st); // Serialize the array
+            }
+
+
             Student comp = new Student();
             //st.Sort(st, comp.Compare);
             //Array.Sort(st, comp.Compare);
