@@ -9,45 +9,57 @@ namespace CS2_Student
 {
     class Thread_Bonjour
     {
+
+        public String input = "go";
+
+        public void func_thread_bonjour(object obj)
+        {
+
+            Container_Bonjour con = obj as Container_Bonjour;
+            string x =con.s;
+            int p = con.p;
+
+            while (input != "quit")
+            {
+                Console.WriteLine("Hello!");
+                Thread.Sleep(p);
+                Console.WriteLine(x);
+
+            }
+        }
+
+        class Container_Bonjour
+        {
+             
         public string s;
         public int p;
 
-        public Thread_Bonjour(string s1, int p1)
+        public Container_Bonjour(string s1, int p1)
         {
             s = s1;
             p = p1;
         }
 
-        class Threads_Hello
-        {
-            public String input = "go";
-
-            public void func_thread_bonjour(object obj)
-            {
-
-                Thread_Bonjour con = obj as Thread_Bonjour;
-                string x = (obj as Thread_Bonjour).s;
-                int p = (obj as Thread_Bonjour).p;
-
-                while (input != "quit")
-                {
-                    Console.WriteLine("Hello!");
-                    Thread.Sleep(p);
-                    Console.WriteLine(x);
-
-                }
-
-            }
-
         }
+
+    
+
+        
 
         static void Main(string[] args)
         {
-            Threads_Hello thread_obj = new Threads_Hello();
+        Thread_Bonjour thread_obj = new Thread_Bonjour();
 
             Thread Myth_b = new Thread(new ParameterizedThreadStart(thread_obj.func_thread_bonjour));
-                Myth_b.Start(new Thread_Bonjour("Bonjour!", 1000));
-                Console.ReadLine();
+            Myth_b.Start(new Container_Bonjour("Bonjour!", 1000));
+
+            while (thread_obj.input != "quit")
+            {
+                thread_obj.input = Console.ReadLine();
+
+            }
+
+            Console.ReadLine();
 
         }
 
